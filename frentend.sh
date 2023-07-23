@@ -8,3 +8,4 @@ unzip /tmp/frontend.zip
 cp frentend.conf /etc/nginx/default.d/roboshop.conf
 systemctl restart nginx
 
+
