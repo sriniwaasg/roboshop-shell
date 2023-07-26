@@ -28,3 +28,4 @@ echo -e "\e[36m>>>>>>>>>enable mongod<<<<<<<<<<<<<\e[0m"
 mongo --host mongodb-dev.sriniwaasg23.online </app/schema/catalogue.js
 
 
+
