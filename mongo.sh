@@ -4,3 +4,5 @@ systemctl enable mongod
 systemctl start mongod
 ## chage ip 127.0.0.0 to 0.0.0.0
 systemctl restart mongod
+
+
