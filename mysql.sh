@@ -11,3 +11,4 @@ echo -e "\e[36m>>>>>>>>>>>>set user pass <<<<<<<<<\e[0m"
 mysql_secure_installation --set-root-pass RoboShop@1
 
 
+
