@@ -1,6 +1,6 @@
 script_path=$(diraname $0)
 
-source common.sh
+source ${script_path}/common.sh
 
 
 exit
