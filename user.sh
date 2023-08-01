@@ -1,6 +1,8 @@
+script_path=$(diraname $0)
+
 source common.sh
 
-dirname $0
+
 exit
 
 
