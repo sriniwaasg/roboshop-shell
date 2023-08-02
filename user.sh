@@ -18,7 +18,7 @@ unzip /tmp/user.zip
 echo -e "\e[36m>>>>>>>>>>>install repo<<<<<<\e[0m"
 npm install
 echo -e "\e[36m>>>>>>>>>>>config setup<<<<<<\e[0m"
-cp ${script_path}/user.ser /etc/systemd/system/user.service
+cp $script_path/user.ser /etc/systemd/system/user.service
 echo -e "\e[36m>>>>>>>>>>>start user<<<<<<\e[0m"
 systemctl enable user
 systemctl start user
