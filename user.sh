@@ -1,14 +1,7 @@
 script=$(realpath "$0")
-
-realpath $0
-exit
-
-
-script_path=$(dirname "$realpath")
-
-exit
-
+script_path=$(dirname "$script")
 source ${script_path}/common.sh
+
 
 
 echo -e "\e[36m>>>>>>>>>install repos<<<<<<\e[0m"
