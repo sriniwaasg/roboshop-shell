@@ -5,6 +5,14 @@ script_path=$(dirname "$script")
 print_head() {
   echo -e "\e[35m>>>>>>>>>> $1 <<<<<<<<<\e[0m"
 }
+schema_setup() {
+  print_head "installmongorepo"
+  cp ${script_path}/mongo.repos /etc/yum.repos.d/mongo.repo
+  print_head "install mongo"
+  yum install mongodb-org-shell -y
+  print_head "Load schema"
+  mongo --host mongodb-dev.sriniwaasg23.online </app/schema/${component}.js
+}
 
 func_nodejs() {
 print_head "install repo"
@@ -29,6 +37,8 @@ print_head "start cart"
 systemctl daemon-reload
 systemctl enable ${component}
 systemctl start ${component}
+
+schema_setup
 
 }
 
