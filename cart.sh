@@ -1,4 +1,7 @@
-source common.sh
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
+
 echo -e "\e[36m>>>>>>>>>>install repo<<<<<<<<<\e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 echo -e "\e[36m>>>>>>>>>>install nodejs<<<<<<<<<\e[0m"
@@ -16,7 +19,7 @@ unzip /tmp/cart.zip
 echo -e "\e[36m>>>>>>>>>>install dependency<<<<<<<<<\e[0m"
 npm install
 echo -e "\e[36m>>>>>>>>>>cart config<<<<<<<<<\e[0m"
-cp /home/centos/roboshop-shell/cart.ser  /etc/systemd/system/cart.service
+cp ${script_path}/cart.ser  /etc/systemd/system/cart.service
 echo -e "\e[36m>>>>>>>>>>start cart<<<<<<<<<\e[0m"
 systemctl daemon-reload
 systemctl enable cart

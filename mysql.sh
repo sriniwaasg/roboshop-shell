@@ -1,3 +1,7 @@
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
+
 echo -e "\e[36m>>>>>>>>>>>>disable module<<<<<<<<<\e[0m"
 yum module disable mysql -y
 echo -e "\e[36m>>>>>>>>>>>>copy msql repo<<<<<<<<<\e[0m"

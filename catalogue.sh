@@ -1,3 +1,7 @@
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
+
 echo -e "\e[36m>>>>>>>>>install repos<<<<<<<<<<<<\e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 echo -e "\e[36m>>>>>>>>>install nginx<<<<<<<<<<<<<\e[0m"
@@ -15,17 +19,18 @@ unzip /tmp/catalogue.zip
 echo -e "\e[36m>>>>>>>>>install dependency<<<<<<<<<<<<<\e[0m"
 npm install
 echo -e "\e[36m>>>>>>>>>copy catalogue config<<<<<<<<<<<<<\e[0m"
-cp /home/centos/roboshop-shell/catalogue.ser /etc/systemd/system/catalogue.service
+cp ${script_path}/catalogue.ser /etc/systemd/system/catalogue.service
 echo -e "\e[36m>>>>>>>>>start catalogue<<<<<<<<<<<<<\e[0m"
 systemctl daemon-reload
 systemctl enable catalogue
 systemctl start catalogue
 echo -e "\e[36m>>>>>>>>>mongo repos<<<<<<<<<<<<<\e[0m"
-cp /home/centos/roboshop-shell/mongo.repos  /etc/yum.repos.d/mongo.repo
+cp ${script_path}/mongo.repos  /etc/yum.repos.d/mongo.repo
 echo -e "\e[36m>>>>>>>>>intall mongoclient<<<<<<<<<<<<<\e[0m"
 yum install mongodb-org-shell -y
 echo -e "\e[36m>>>>>>>>>enable mongod<<<<<<<<<<<<<\e[0m"
 mongo --host mongodb-dev.sriniwaasg23.online </app/schema/catalogue.js
+
 
 
 
