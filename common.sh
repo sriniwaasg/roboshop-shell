@@ -13,7 +13,6 @@ schema_setup() {
   yum install mongodb-org-shell -y
   print_head "Load schema"
   mongo --host mongodb-dev.sriniwaasg23.online </app/schema/${component}.js
-
   fi
 
 }
