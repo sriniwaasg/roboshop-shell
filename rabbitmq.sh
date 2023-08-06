@@ -15,3 +15,4 @@ echo -e "\e[36m>>>>>>>>>>>>>add user<<<<<<<<<<<\e[0m"
 rabbitmqctl add_user roboshop ${rabbitmq_user_password}
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
 
+
