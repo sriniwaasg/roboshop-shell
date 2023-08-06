@@ -3,8 +3,9 @@ script_path=$(dirname "$script")
 source ${script_path}/common.sh
 
 compnent=cataloge
-
+schema_setup=mongo
 func_nodejs
+
 
 
 
