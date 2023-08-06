@@ -7,12 +7,16 @@ print_head() {
 }
 schema_setup() {
   if [ "$schema_setup" == "mongo" ]; then
+
   print_head "installmongorepo"
   cp ${script_path}/mongo.repos /etc/yum.repos.d/mongo.repo
+
   print_head "install mongo"
   yum install mongodb-org-shell -y
+
   print_head "Load schema"
   mongo --host mongodb-dev.sriniwaasg23.online </app/schema/${component}.js
+
   fi
 
 }
