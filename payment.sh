@@ -3,6 +3,10 @@ script_path=$(dirname "$script")
 source ${script_path}/common.sh
 
 rabbitmq_appuser_password=$1
+if [-z "$rabbitmq_appuser_password" ]; then
+  echo input rabbitmq appuser passwor missing
+  exit
+  fi
 echo -e "\e[36m>>>>>>>>install python<<<<<<<<<<\e[0m"
 yum install python36 gcc python3-devel -y
 echo -e "\e[36m>>>>>>>>add user<<<<<<<<<<\e[0m"
