@@ -2,7 +2,7 @@ script=$(realpath "$0")
 script_path=$(dirname "$script")
 source ${script_path}/common.sh
 
-
+rabbitmq_appuser_password=$1
 echo -e "\e[36m>>>>>>>>install python<<<<<<<<<<\e[0m"
 yum install python36 gcc python3-devel -y
 echo -e "\e[36m>>>>>>>>add user<<<<<<<<<<\e[0m"
@@ -22,5 +22,6 @@ echo -e "\e[36m>>>>>>>>start payment<<<<<<<<<<\e[0m"
 systemctl daemon-reload
 systemctl enable payment
 systemctl start payment
+
 
 
