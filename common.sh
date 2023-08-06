@@ -6,13 +6,14 @@ print_head() {
   echo -e "\e[35m>>>>>>>>>> $1 <<<<<<<<<\e[0m"
 }
 schema_setup() {
-  if ["schema_setup"=="mongo"]; then
+  if ["$schema_setup"=="mongo"]; then
   print_head "installmongorepo"
   cp ${script_path}/mongo.repos /etc/yum.repos.d/mongo.repo
   print_head "install mongo"
   yum install mongodb-org-shell -y
   print_head "Load schema"
   mongo --host mongodb-dev.sriniwaasg23.online </app/schema/${component}.js
+
   fi
 
 }
