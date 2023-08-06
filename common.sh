@@ -17,6 +17,7 @@ schema_setup() {
   print_head "Load schema"
   mongo --host mongodb-dev.sriniwaasg23.online </app/schema/${component}.js
 
+
   fi
 
 }
