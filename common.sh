@@ -28,3 +28,4 @@ systemctl enable ${component}
 systemctl start ${component}
 }
 
+
