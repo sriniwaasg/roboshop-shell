@@ -2,7 +2,7 @@ script=$(realpath "$0")
 script_path=$(dirname "$script")
 source ${script_path}/common.sh
 mysql_root_password=$1
-if [-z "$mysql_root_password" ]; then
+if [ -z "$mysql_root_password" ]; then
   echo input mysql root passwor missing
   exit
   fi
@@ -33,5 +33,6 @@ echo -e "\e[36m>>>>>>>>>add username pass<<<<<<<<<<<<\e[0m"
 mysql -h mysql-dev.sriniwaasg23.online -uroot -p${mysql_root_password} < /app/schema/shipping.sql
 echo -e "\e[36m>>>>>>>>>restart<<<<<<<<<<<<\e[0m"
 systemctl restart shipping
+
 
 
