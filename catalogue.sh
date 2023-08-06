@@ -4,7 +4,7 @@ source ${script_path}/common.sh
 
 compnent=cataloge
 
-func_nodjs()
+func_nodjs
 
 echo -e "\e[36m>>>>>>>>>mongo repos<<<<<<<<<<<<<\e[0m"
 cp ${script_path}/mongo.repos  /etc/yum.repos.d/mongo.repo

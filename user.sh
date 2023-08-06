@@ -4,7 +4,7 @@ source ${script_path}/common.sh
 
 component=user
 
-func_nodjs()
+func_nodjs
 
 
 
