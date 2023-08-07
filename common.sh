@@ -6,7 +6,7 @@ func_print_head() {
   echo -e "\e[35m>>>>>>>>>> $1 <<<<<<<<<\e[0m"
 }
  func_schema_setup() {
-  if [ "$schema_setup" == "mongo" ]; then
+  if [ "${schema_setup}" == "mongo" ]; then
 
   func_print_head "installmongorepo"
   cp ${script_path}/mongo.repos /etc/yum.repos.d/mongo.repo
