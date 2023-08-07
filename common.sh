@@ -17,7 +17,7 @@ func_print_head() {
   func_print_head "Load schema"
   mongo --host mongodb-dev.sriniwaasg23.online </app/schema/${component}.js
   fi
-  if[ "$schema_setup" == "mysql"];then
+  if[ "$schema_setup" == "mysql" ]; then
 
   func_print_head "install mysql"
   yum install mysql -y
