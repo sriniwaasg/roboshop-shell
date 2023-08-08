@@ -7,13 +7,12 @@ func_print_head() {
 }
 
 func_stat_check(){
-  if [ $1 -eq 0]; then
+  if [ $1 -eq 0 ]; then
     echo -e "\e[35msucces\e[0m"
     else
     echo -e "\e[35mfailure\e[0m"
     exit 1
     fi
-
 
 }
  func_schema_setup() {
