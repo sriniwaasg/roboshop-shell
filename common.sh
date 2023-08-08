@@ -44,7 +44,7 @@ func_stat_check(){
 }
 func_app_prereq(){
   func_print_head "add application user"
-  useradd roboshop
+  useradd ${app_user}
   func_stat_check $?
 
  func_print_head "create application directory"
