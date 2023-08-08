@@ -139,3 +139,19 @@ func_python(){
  func_systemd_setup
 
 }
+func_dispatch(){
+   func_print_head "install goglan"
+  yum install golang -y &>>$log_file
+  func_stat_check $?
+
+  func_app_prereq
+
+ func_print_head "get buld dispatch"
+  go mod init dispatch &>>$log_file
+  go get &>>$log_file
+  go build &>>$log_file
+  func_stat_check $?
+
+
+ func_systemd_setup
+}
