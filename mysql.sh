@@ -6,17 +6,27 @@ if [ -z "$mysql_root_password" ]; then
   echo input mysql root passwor missing
   exit
   fi
-echo -e "\e[36m>>>>>>>>>>>>disable module<<<<<<<<<\e[0m"
-yum module disable mysql -y
-echo -e "\e[36m>>>>>>>>>>>>copy msql repo<<<<<<<<<\e[0m"
-cp ${script_path}/mysql.repo /etc/yum.repos.d/mysql.repo
-echo -e "\e[36m>>>>>>>>>>>>install mysql<<<<<<<<<\e[0m"
-yum install mysql-community-server -y
-echo -e "\e[36m>>>>>>>>>>>>sart mysql<<<<<<<<<\e[0m"
-systemctl enable mysqld
-systemctl start mysqld
-echo -e "\e[36m>>>>>>>>>>>>set user pass <<<<<<<<<\e[0m"
-mysql_secure_installation --set-root-pass $mysql_root_password
+
+ func_print_head "disable module"
+yum module disable mysql -y &>>$log_file
+func_stat_check $?
+
+func_print_head "copy msql repo"
+cp ${script_path}/mysql.repo /etc/yum.repos.d/mysql.repo &>>$log_file
+func_stat_check $?
+
+func_print_head "install mysql"
+yum install mysql-community-server -y &>>$log_file
+func_stat_check $?
+
+func_print_head "sart mysql"
+systemctl enable mysqld &>>$log_file
+systemctl start mysqld &>>$log_file
+func_stat_check $?
+
+func_print_head "set user pass"
+mysql_secure_installation --set-root-pass $mysql_root_password &>>$log_file
+func_stat_check $?
 
 
 
