@@ -95,6 +95,7 @@ func_stat_check $?
 func_app_prereq
 
 func_print_head "install npm"
+cd /app
 npm install &>>$log_file
 func_stat_check $?
 
