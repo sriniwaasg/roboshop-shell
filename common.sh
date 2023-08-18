@@ -10,7 +10,7 @@ func_print_head(){
 }
 
 func_stat_check(){
-  if [ $1 -eq 0 ]; then
+  if [ $1 -eq 0]; then
     echo -e "\e[34msuccess\e[0m"
     else
     echo -e "\e[34mfailure\e[0m"
@@ -34,7 +34,7 @@ func_schema_setup(){
    mongo --host mongodb-dev.sriniwaasg23.online </app/schema/catalogue.js $>>log_file
    func_stat_check $?
    fi
-   if[ "${schema_setup}" == "mysql" ]; then
+   if [ "${schema_setup}" == "mysql" ]; then
 
    func_print_head "install mysql"
     yum install mysql -y $>>log_file
