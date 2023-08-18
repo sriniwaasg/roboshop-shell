@@ -11,9 +11,9 @@ func_print_head(){
 
 func_stat_check(){
   if [ $1 -eq 0]; then
-    echo -e "\e[34msuccess\e[0m"
+    echo -e "\e[32msuccess\e[0m"
     else
-    echo -e "\e[34mfailure\e[0m"
+    echo -e "\e[31mfailure\e[0m"
     echo "refer the log file  /tmp/roboshop.log for more information"
     exit 1
     fi
