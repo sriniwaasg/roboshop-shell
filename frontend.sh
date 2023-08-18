@@ -23,7 +23,7 @@ unzip /tmp/frontend.zip &>>$log_file
 func_stat_check $?
 
 func_print_head "conpy config file"
-cp frontend.conf  /etc/nginx/default.d/roboshop.conf &>>$log_file
+cp frontend.conf /etc/nginx/default.d/roboshop.conf &>>$log_file
 func_stat_check $?
 
 func_print_head "start nginx"
