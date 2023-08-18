@@ -49,7 +49,7 @@ func_schema_setup(){
 func_app_prereq(){
   func_print_head "add application user"
   id ${app_user} &>>log_file
-  if [ $? -ne 0 ] ; then
+  if [ $? -ne 0 ]; then
   useradd ${app_user}  &>>log_file
   fi
   func_stat_check $?
