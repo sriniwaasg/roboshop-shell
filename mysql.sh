@@ -1,22 +1,29 @@
 script=$(realpath "$0")
 script_path=$(dirname "$script")
 source ${script_path}/common.sh
+mysql_root_password=$1
+
+if [ -z "mysql_root_password"]; then
+  echo input mysql root password missing
+  exit
+  fi
 
 
-"disable mysql"
+
+func_print_head "disable mysql"
 yum module disable mysql -y
 
-"copy mysql repos"
+func_print_head "copy mysql repos"
 cp mysql.repo /etc/yum.repos.d/mysql.repo
 
-"install mysql"
+func_print_head "install mysql"
 yum install mysql-community-server -y
 
-"start mysql"
+func_print_head "start mysql"
 systemctl enable mysqld
 systemctl start mysqld
 
-"add password"
+func_print_head "add password"
 mysql_secure_installation --set-root-pass RoboShop@1
 
 mysql -uroot -pRoboShop@1
