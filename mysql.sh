@@ -6,16 +6,16 @@ mysql_root_password=$1
 if [ -z "mysql_root_password" ]; then
   echo input mysql root password missing
   exit
-  fi
+fi
 
 
 
 func_print_head "disable mysql"
-yum module disable mysql -y &>>$log_file
+yum module disable mysql -y  &>>$log_file
 func_stat_check $?
 
 func_print_head "copy mysql repos"
-cp mysql.repo /etc/yum.repos.d/mysql.repo &>>$log_file
+cp ${script_path}/mysql.repo /etc/yum.repos.d/mysql.repo &>>$log_file
 func_stat_check $?
 
 func_print_head "install mysql"
@@ -28,7 +28,7 @@ systemctl start mysqld &>>$log_file
 func_stat_check $?
 
 func_print_head "add password"
-mysql_secure_installation --set-root-pass ${mysql_root_password} &>>$log_file
+mysql_secure_installation --set-root-pass $mysql_root_password &>>$log_file
 func_stat_check $?
 
 
