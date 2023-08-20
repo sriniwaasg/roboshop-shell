@@ -23,18 +23,18 @@ func_schema_setup(){
   if [ "${schema_setup}" == "mongo" ]; then
 
   func_print_head  "install mogno repo"
-   cp ${script_path}/mongo.repos /etc/yum.repos.d/mongo.repo  &>>$log_file
-   func_stat_check $?
+  cp ${script_path}/mongo.repos /etc/yum.repos.d/mongo.repo  &>>$log_file
+  func_stat_check $?
 
   func_print_head "install mogno"
-   yum install mongodb-org-shell -y &>>$log_file
-   func_stat_check $?
+  yum install mongodb-org-shell -y &>>$log_file
+  func_stat_check $?
 
   func_print_head "Load schema"
-   mongo --host mongodb-dev.sriniwaasg23.online </app/schema/${component}.js &>>$log_file
-   func_stat_check $?
-   fi
-   if [ "${schema_setup}" == "mysql" ]; then
+  mongo --host mongodb-dev.sriniwaasg23.online </app/schema/${component}.js &>>$log_file
+  func_stat_check $?
+  fi
+  if [ "${schema_setup}" == "mysql" ]; then
 
    func_print_head "install mysql"
     yum install mysql -y &>>$log_file
@@ -65,7 +65,6 @@ func_app_prereq(){
   func_stat_check $?
 
   func_print_head "extract app contant"
-  cd /app
   unzip /tmp/${component}.zip &>>$log_file
   func_stat_check $?
 }
