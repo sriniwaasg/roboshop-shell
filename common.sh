@@ -65,6 +65,7 @@ func_app_prereq(){
   func_stat_check $?
 
   func_print_head "extract app contant"
+  cd/app
   unzip /tmp/${component}.zip &>>$log_file
   func_stat_check $?
 }
